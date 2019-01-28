@@ -8,74 +8,74 @@
  * the rightmost char represents the state of D0.
  */
 /* SPECIAL CHARACTERS */
-#define Spc "0100000" /* [ ] white space (blank) */
-#define Exp "0100001" /* [!] exclamation point */
-#define Ats "1000000" /* [@] at sign */
-#define Pnd "0100011" /* [#] pound sign */
-#define Dlr "0100100" /* [$] dollar sign */
-#define Mod "0100101" /* [%] percent sign */
-#define Xor "1011110" /* [^] carrot */
-#define And "0100110" /* [&] ampersand */
-#define Ast "0101010" /* [*] asterisk (multiplication) */
-#define Opr "0101000" /* [(] open parentheses */
-#define Cpr "0101001" /* [)] closed parentheses */
-#define Mns "0101101" /* [-] minus sign (dash/hyphen) */
-#define Uln "1011111" /* [_] underscore */
-#define Pls "0101011" /* [+] plus sign */
-#define Eql "0111101" /* [=] equals sign */
-#define Obr "1011011" /* [[] open bracket */
-#define Obr "1011101" /* []] closed bracket */
-#define Bsh "1011100" /* [\] back slash  */
-#define Sem "0111011" /* [;] semicolon */
-#define Col "0111010" /* [:] colon */
-#define Apt "0100111" /* ['] apostrophe */
-#define Qtm "0100010" /* ["] quotation mark */
-#define Com "0101100" /* [,] comma */
-#define Lth "0111100" /* [<] less-than sign */
-#define Prd "0101110" /* [.] period (decimal) */
-#define Gth "0111110" /* [>] greater-than sign */
-#define Fsh "0101111" /* [/] forward slash (division) */
-#define Qst "0111111" /* [?] question mark */
+const int Spc[] = {0,1,0,0,0,0,0}; /* [ ] white space (blank) */
+const int Exp[] = {0,1,0,0,0,0,1}; /* [!] exclamation point */
+const int Ats[] = {1,0,0,0,0,0,0}; /* [@] at sign */
+const int Pnd[] = {0,1,0,0,0,1,1}; /* [#] pound sign */
+const int Dlr[] = {0,1,0,0,1,0,0}; /* [$] dollar sign */
+const int Mod[] = {0,1,0,0,1,0,1}; /* [%] percent sign */
+const int Xor[] = {1,0,1,1,1,1,0}; /* [^] carrot */
+const int And[] = {0,1,0,0,1,1,0}; /* [&] ampersand */
+const int Ast[] = {0,1,0,1,0,1,0}; /* [*] asterisk (multiplication) */
+const int Opr[] = {0,1,0,1,0,0,0}; /* [(] open parentheses */
+const int Cpr[] = {0,1,0,1,0,0,1}; /* [)] closed parentheses */
+const int Mns[] = {0,1,0,1,1,0,1}; /* [-] minus sign (dash/hyphen) */
+const int Uln[] = {1,0,1,1,1,1,1}; /* [_] underscore */
+const int Pls[] = {0,1,0,1,0,1,1}; /* [+] plus sign */
+const int Eql[] = {0,1,1,1,1,0,1}; /* [=] equals sign */
+const int Obr[] = {1,0,1,1,0,1,1}; /* [[] open bracket */
+const int Cbr[] = {1,0,1,1,1,0,1}; /* []] closed bracket */
+const int Bsh[] = {1,0,1,1,1,0,0}; /* [\] back slash  */
+const int Sem[] = {0,1,1,1,0,1,1}; /* [;] semicolon */
+const int Col[] = {0,1,1,1,0,1,0}; /* [:] colon */
+const int Apt[] = {0,1,0,0,1,1,1}; /* ['] apostrophe */
+const int Qtm[] = {0,1,0,0,0,1,0}; /* ["] quotation mark */
+const int Com[] = {0,1,0,1,1,0,0}; /* [,] comma */
+const int Lth[] = {0,1,1,1,1,0,0}; /* [<] less-than sign */
+const int Prd[] = {0,1,0,1,1,1,0}; /* [.] period (decimal) */
+const int Gth[] = {0,1,1,1,1,1,0}; /* [>] greater-than sign */
+const int Fsh[] = {0,1,0,1,1,1,1}; /* [/] forward slash (division) */
+const int Qst[] = {0,1,1,1,1,1,1}; /* [?] question mark */
 
 /* NUMBERS */
-#define No0 "0110000" /* [0] zero */
-#define No1 "0110001" /* [1] one */
-#define No2 "0110010" /* [2] two */
-#define No3 "0110011" /* [3] three */
-#define No4 "0110100" /* [4] four */
-#define No5 "0110101" /* [5] five */
-#define No6 "0110110" /* [6] six */
-#define No7 "0110111" /* [7] seven */
-#define No8 "0111000" /* [8] eight */
-#define No9 "0111001" /* [9] nine */
+const int No0[] = {0,1,1,0,0,0,0}; /* [0] zero */
+const int No1[] = {0,1,1,0,0,0,1}; /* [1] one */
+const int No2[] = {0,1,1,0,0,1,0}; /* [2] two */
+const int No3[] = {0,1,1,0,0,1,1}; /* [3] three */
+const int No4[] = {0,1,1,0,1,0,0}; /* [4] four */
+const int No5[] = {0,1,1,0,1,0,1}; /* [5] five */
+const int No6[] = {0,1,1,0,1,1,0}; /* [6] six */
+const int No7[] = {0,1,1,0,1,1,1}; /* [7] seven */
+const int No8[] = {0,1,1,1,0,0,0}; /* [8] eight */
+const int No9[] = {0,1,1,1,0,0,1}; /* [9] nine */
 
 /* LETTERS */
-#define _A_ "1000001" /* [A] capital a */
-#define _B_ "1000010" /* [B] capital b */
-#define _C_ "1000011" /* [C] capital c */
-#define _D_ "1000100" /* [D] capital d */
-#define _E_ "1000101" /* [E] capital e */
-#define _F_ "1000110" /* [F] capital f */
-#define _G_ "1000111" /* [G] capital g */
-#define _H_ "1001000" /* [H] capital h */
-#define _I_ "1001001" /* [I] capital i */
-#define _J_ "1001010" /* [J] capital j */
-#define _K_ "1001011" /* [K] capital k */
-#define _L_ "1001100" /* [L] capital l */
-#define _M_ "1001101" /* [M] capital m */
-#define _N_ "1001110" /* [N] capital n */
-#define _O_ "1001111" /* [O] capital o */
-#define _P_ "1010000" /* [P] capital p */
-#define _Q_ "1010001" /* [Q] capital q */
-#define _R_ "1010010" /* [R] capital r */
-#define _S_ "1010011" /* [S] capital s */
-#define _T_ "1010100" /* [T] capital t */
-#define _U_ "1010101" /* [U] capital u */
-#define _V_ "1010110" /* [V] capital v */
-#define _W_ "1010111" /* [W] capital w */
-#define _X_ "1011000" /* [X] capital x */
-#define _Y_ "1011001" /* [Y] capital y */
-#define _Z_ "1011010" /* [Z] capital z */
+const int _A_[] = {1,0,0,0,0,0,1}; /* [A] capital a */
+const int _B_[] = {1,0,0,0,0,1,0}; /* [B] capital b */
+const int _C_[] = {1,0,0,0,0,1,1}; /* [C] capital c */
+const int _D_[] = {1,0,0,0,1,0,0}; /* [D] capital d */
+const int _E_[] = {1,0,0,0,1,0,1}; /* [E] capital e */
+const int _F_[] = {1,0,0,0,1,1,0}; /* [F] capital f */
+const int _G_[] = {1,0,0,0,1,1,1}; /* [G] capital g */
+const int _H_[] = {1,0,0,1,0,0,0}; /* [H] capital h */
+const int _I_[] = {1,0,0,1,0,0,1}; /* [I] capital i */
+const int _J_[] = {1,0,0,1,0,1,0}; /* [J] capital j */
+const int _K_[] = {1,0,0,1,0,1,1}; /* [K] capital k */
+const int _L_[] = {1,0,0,1,1,0,0}; /* [L] capital l */
+const int _M_[] = {1,0,0,1,1,0,1}; /* [M] capital m */
+const int _N_[] = {1,0,0,1,1,1,0}; /* [N] capital n */
+const int _O_[] = {1,0,0,1,1,1,1}; /* [O] capital o */
+const int _P_[] = {1,0,1,0,0,0,0}; /* [P] capital p */
+const int _Q_[] = {1,0,1,0,0,0,1}; /* [Q] capital q */
+const int _R_[] = {1,0,1,0,0,1,0}; /* [R] capital r */
+const int _S_[] = {1,0,1,0,0,1,1}; /* [S] capital s */
+const int _T_[] = {1,0,1,0,1,0,0}; /* [T] capital t */
+const int _U_[] = {1,0,1,0,1,0,1}; /* [U] capital u */
+const int _V_[] = {1,0,1,0,1,1,0}; /* [V] capital v */
+const int _W_[] = {1,0,1,0,1,1,1}; /* [W] capital w */
+const int _X_[] = {1,0,1,1,0,0,0}; /* [X] capital x */
+const int _Y_[] = {1,0,1,1,0,0,1}; /* [Y] capital y */
+const int _Z_[] = {1,0,1,1,0,1,0}; /* [Z] capital z */
 
 /* digital I/O pins corresponding to each character select pin */
 #define D0 2
@@ -85,16 +85,294 @@
 #define D4 6
 #define D5 7
 #define D6 8
+const int D[] = {8,7,6,5,4,3,2}; /* notice array order is reverse of above */
 
-/* cursor pins */
+/* cursor pins - 00 for left, 11 for right*/
 #define A1 10
 #define A2 11
 
-/* write pins */
-#define WRL 9   /* left display */
-#define WRR 12  /* right display */
+/* write pins - 1 preserves last state, 0 stores current state */
+#define WRR 9   /* right display */
+#define WRL 12  /* left display */
 
+/* uses digitalWrite to set the character pins to the values in the passed array*/
+void setChPins(const int *character) 
+{
+  for (int i = 0; i < 7; i++) {
+    digitalWrite(D[i], character[i]);
+  }
+  return;
+}
 
+/* puts character c on the display at index n - LtR indexing begining at 0 */
+void hdplPutC(char c, int n) 
+{
+  /* set proper cursor pins */
+  switch (n % 4) { /* 4 is the number of indexes per display */
+    case 0:
+      digitalWrite(A1, 1); /* leftmost index */
+      digitalWrite(A2, 1); 
+      break;
+    case 1:
+      digitalWrite(A1, 1);
+      digitalWrite(A2, 0); 
+      break;
+    case 2:
+      digitalWrite(A1, 0);
+      digitalWrite(A2, 1);
+      break;
+    case 3:
+      digitalWrite(A1, 0); /* rightmost index */
+      digitalWrite(A2, 0);
+      break;
+  }
+  
+  switch (c) { /* set the proper the character pins */
+    /* alphebet */
+    case 'a':
+    case 'A':
+      setChPins(_A_);
+      break;
+    case 'b':
+    case 'B':
+      setChPins(_B_);
+      break;
+    case 'c':
+    case 'C':
+      setChPins(_C_);
+      break;
+    case 'd':
+    case 'D':
+      setChPins(_D_);
+      break;  
+    case 'e':
+    case 'E':
+      setChPins(_E_);
+      break;
+    case 'f':
+    case 'F':
+      setChPins(_F_);
+      break;
+    case 'g':
+    case 'G':
+      setChPins(_G_);
+      break;
+    case 'h':
+    case 'H':
+      setChPins(_H_);
+      break;
+    case 'i':
+    case 'I':
+      setChPins(_I_);
+      break;  
+    case 'j':
+    case 'J':
+      setChPins(_J_);
+      break;  
+    case 'k':
+    case 'K':
+      setChPins(_K_);
+      break;
+    case 'l':
+    case 'L':
+      setChPins(_L_);
+      break;
+    case 'm':
+    case 'M':
+      setChPins(_M_);
+      break;
+    case 'n':
+    case 'N':
+      setChPins(_N_);
+      break;  
+    case 'o':
+    case 'O':
+      setChPins(_O_);
+      break;  
+    case 'p':
+    case 'P':
+      setChPins(_P_);
+      break;
+    case 'q':
+    case 'Q':
+      setChPins(_Q_);
+      break;
+    case 'r':
+    case 'R':
+      setChPins(_R_);
+      break;
+    case 's':
+    case 'S':
+      setChPins(_S_);
+      break;  
+    case 't':
+    case 'T':
+      setChPins(_T_);
+      break;  
+    case 'u':
+    case 'U':
+      setChPins(_U_);
+      break;
+    case 'v':
+    case 'V':
+      setChPins(_V_);
+      break;
+    case 'w':
+    case 'W':
+      setChPins(_W_);
+      break;
+    case 'x':
+    case 'X':
+      setChPins(_X_);
+      break;  
+    case 'y':
+    case 'Y':
+      setChPins(_Y_);
+      break; 
+    case 'z':
+    case 'Z':
+      setChPins(_Z_);
+      break;
+      
+    /* numbers */
+    case '0':
+      setChPins(No0);
+      break;
+    case '1':
+      setChPins(No1);
+      break;
+    case '2':
+      setChPins(No2);
+      break;
+    case '3':
+      setChPins(No3);
+      break;  
+    case '4':
+      setChPins(No4);
+      break;
+    case '5':
+      setChPins(No5);
+      break;
+    case '6':
+      setChPins(No6);
+      break;
+    case '7':
+      setChPins(No7);
+      break;  
+    case '8':
+      setChPins(No8);
+      break;
+    case '9':
+      setChPins(No9);
+      break; 
+      
+    /* special characters */
+    case ' ':
+      setChPins(Spc);
+      break;
+    case '!':
+      setChPins(Exp);
+      break;
+    case '@':
+      setChPins(Ats);
+      break; 
+    case '#':
+      setChPins(Pnd);
+      break;
+    case '$':
+      setChPins(Dlr);
+      break;
+    case '%':
+      setChPins(Mod);
+      break;
+    case '^':
+      setChPins(Xor);
+      break;  
+    case '&':
+      setChPins(And);
+      break;
+    case '*':
+      setChPins(Ast);
+      break;
+    case '(':
+      setChPins(Opr);
+      break;
+    case ')':
+      setChPins(Cpr);
+      break;  
+    case '-':
+      setChPins(Mns);
+      break;
+    case '_':
+      setChPins(Uln);
+      break; 
+    case '+':
+      setChPins(Pls);
+      break;
+    case '=':
+      setChPins(Eql);
+      break;
+    case '[':
+      setChPins(Obr);
+      break;
+    case ']':
+      setChPins(Cbr);
+      break;  
+    case '\\':
+      setChPins(Bsh);
+      break;
+    case ';':
+      setChPins(Sem);
+      break;
+    case ':':
+      setChPins(Col);
+      break;
+    case '\'':
+      setChPins(Apt);
+      break;  
+    case '"':
+      setChPins(Qtm);
+      break;
+    case ',':
+      setChPins(Com);
+      break; 
+    case '<':
+      setChPins(Lth);
+      break;
+    case '.':
+      setChPins(Prd);
+      break;
+    case '>':
+      setChPins(Gth);
+      break;
+    case '/':
+      setChPins(Fsh);
+      break;  
+    case '?':
+      setChPins(Qst);
+      break;
+  }
+  
+  if (n < 4 && n >= 0) { /* indexes 0 to 3 are put on the left display */
+    /* toggle write pin to store and preserve the current state */
+    digitalWrite(WRL, LOW);
+    digitalWrite(WRL, HIGH);
+  } else if (n < 8 && n >= 4) { /* indexes 4 to 7 are put on the right display */
+    /* toggle write pin to store and preserve the current state */
+    digitalWrite(WRR, LOW);
+    digitalWrite(WRR, HIGH);
+  }
+  return;
+}
+
+void hdplPrint(String str)
+{
+  for (int n = 0; n < 4; n++) {
+    
+      return;
+    
+  }
+}
 
 void setup()
 {
@@ -111,29 +389,43 @@ void setup()
   pinMode(WRL, OUTPUT);
   pinMode(WRR, OUTPUT);
   
-  /* set cursor pins to LOW */
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
+  /* set write pins to LOW to store the current state */
+  digitalWrite(WRL, 0);
+  digitalWrite(WRR, 0);
   
-  /* set write pins to HIGH */
-  digitalWrite(WRL, HIGH);
-  digitalWrite(WRR, HIGH);
-
-
-  /* set character select pins */
-  digitalWrite(D6, LOW);
-  digitalWrite(D5, HIGH);
-  digitalWrite(D4, LOW);
-  digitalWrite(D3, LOW);
-  digitalWrite(D2, LOW);
-  digitalWrite(D1, LOW);
-  digitalWrite(D0, HIGH);
+  /* CLEAR THE DISPLAY */ 
+  /* set character select pins SET TO SPACE */
+  digitalWrite(D6, 0);
+  digitalWrite(D5, 0);
+  digitalWrite(D4, 0);
+  digitalWrite(D3, 0);
+  digitalWrite(D2, 0);
+  digitalWrite(D1, 0);
+  digitalWrite(D0, 0);
+  digitalWrite(A1, 1);
+  digitalWrite(A2, 1); 
+  digitalWrite(A1, 0);
   
+  /* set write pins to HIGH to preserve the current state */
+  digitalWrite(WRL, 1);
+  digitalWrite(WRR, 1);
   
-  
+  hdplPutC('A', 0);
 }
+
+
+int x = 0;
 
 void loop()
 {
-
+  hdplPutC(x % 128, x % 8);
+  hdplPutC((x + 1) % 128, (x + 1) % 8);
+  x++;
+  delay(500);
 }
+
+
+
+
+
+
