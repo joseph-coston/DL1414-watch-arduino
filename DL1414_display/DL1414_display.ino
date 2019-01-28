@@ -105,7 +105,7 @@ void setChPins(const int *character)
 }
 
 /* puts character c on the display at index n - LtR indexing begining at 0 */
-void hdplPutC(char c, int n) 
+void hpdlPutC(char c, int n) 
 {
   /* set proper cursor pins */
   switch (n % 4) { /* 4 is the number of indexes per display */
@@ -365,14 +365,16 @@ void hdplPutC(char c, int n)
   return;
 }
 
-void hdplPrint(String str)
+/* prints a string of no more than 8 recognized characters */
+void hpdlPrint(String str)
 {
-  for (int n = 0; n < 4; n++) {
-    
-      return;
-    
+  int len = str.length();
+  for (int n = 0; n < len && n < 8; n++) {
+    hpdlPutC(str.charAt(n),n);
   }
 }
+
+//void 
 
 void setup()
 {
@@ -409,8 +411,6 @@ void setup()
   /* set write pins to HIGH to preserve the current state */
   digitalWrite(WRL, 1);
   digitalWrite(WRR, 1);
-  
-  hdplPutC('A', 0);
 }
 
 
@@ -418,10 +418,14 @@ int x = 0;
 
 void loop()
 {
-  hdplPutC(x % 128, x % 8);
-  hdplPutC((x + 1) % 128, (x + 1) % 8);
-  x++;
-  delay(500);
+  hpdlPrint(" joseph ");
+  delay(1200);
+  hpdlPrint(" coston ");
+  delay(1200);
+  hpdlPrint("  is a  ");
+  delay(1200);
+  hpdlPrint(" wizard ");
+  delay(1200);
 }
 
 
