@@ -374,7 +374,10 @@ void hpdlPrint(String str)
   }
 }
 
-void hpdlCrawl(String str, int dwell, double rate)
+/* print an arbitrary length string as crawling text
+   beginning and ending on the display, dwelling before
+   and after the crawl sequence */
+void hpdlPrintCrawl(String str, int dwell, double rate)
 {
   int len = str.length();
   String toPrint = str;
@@ -388,9 +391,42 @@ void hpdlCrawl(String str, int dwell, double rate)
   delay(dwell);
 }
 
-void hpdlFullCrawl(String str, double rate)
+/* print an arbitrary length string as 
+   crawling text beginning and ending 
+   off the display */
+void hpdlPrintFullCrawl(String str, double rate)
 {
-  hpdlCrawl("        " + str + "        ", 0, rate);
+  hpdlPrintCrawl("        " + str + "        ", 0, rate);
+}
+
+/* print an 8-char string with an unscrambling effect */
+void hpdlPrintUnscramble(String str, int dwell, double rate)
+{
+  int found[] = {0,0,0,0,0,0,0,0};
+  bool done = false;
+  String toPrint = "        ";
+  while(!done){
+    for (int index = 0; index < 8; index++){
+      char c = rand() % 128;
+      if (found[index] == 0){
+        toPrint.setCharAt(index,c);
+        if (str.charAt(index) == toPrint.charAt(index))
+          found[index] = 1;
+      }
+    }
+    hpdlPrint(toPrint);
+    delay(int(1000/rate));
+    
+    int sum = 0;
+    for (int i = 0; i < 8; i++){
+      sum += found[i];
+    }
+    if (sum == 8)
+      done = true;
+    else
+      done = false;
+  }
+  delay(dwell);
 }
 
 //void 
@@ -438,11 +474,14 @@ int x = 0;
 void loop()
 {
   hpdlPrint(" hello  ");
-  delay(1200);
+  delay(1000);
   hpdlPrint("  world ");
-  delay(1200);
+  delay(1000);
   hpdlPrint("hpdl1414");
-  delay(1200);
-  hpdlCrawl("hello world crawl",500,3);
-  hpdlFullCrawl("hello world full crawl",5);
-}
+  delay(1000);
+  hpdlPrintCrawl("hello world crawl",1000,5);
+  hpdlPrintFullCrawl("the quick brown fox jumped over the lazy dog!",8);
+
+  hpdlPrintUnscramble("hpdl1414",5000,30);
+
+};
