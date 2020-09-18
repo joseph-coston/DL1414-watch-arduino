@@ -374,6 +374,25 @@ void hpdlPrint(String str)
   }
 }
 
+void hpdlCrawl(String str, int dwell, double rate)
+{
+  int len = str.length();
+  String toPrint = str;
+  hpdlPrint(toPrint);
+  delay(dwell);
+  for (int n = 0; n < len-8; n++){
+    toPrint.remove(0,1);
+    hpdlPrint(toPrint);
+    delay(int(1000/rate));
+  }
+  delay(dwell);
+}
+
+void hpdlFullCrawl(String str, double rate)
+{
+  hpdlCrawl("        " + str + "        ", 0, rate);
+}
+
 //void 
 
 void setup()
@@ -418,18 +437,12 @@ int x = 0;
 
 void loop()
 {
-  hpdlPrint(" joseph ");
+  hpdlPrint(" hello  ");
   delay(1200);
-  hpdlPrint(" coston ");
+  hpdlPrint("  world ");
   delay(1200);
-  hpdlPrint("  is a  ");
+  hpdlPrint("hpdl1414");
   delay(1200);
-  hpdlPrint(" wizard ");
-  delay(1200);
+  hpdlCrawl("hello world crawl",500,3);
+  hpdlFullCrawl("hello world full crawl",5);
 }
-
-
-
-
-
-
